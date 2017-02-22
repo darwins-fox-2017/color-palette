@@ -1,11 +1,12 @@
 var express = require("express");
 var app = express();
+var color = require("./lib/get_pallete")
 
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 app.get("/", function (req, res) {
-  res.render("index", { palette: ["#69D2E7", "#E0E4CC", "#F38630" });
+  res.render("index", { pallete: color.getPallete()});
 });
 
-console.log("Server runing on http://localhost:9000")
+console.log("Server running on http://localhost:9000")
 app.listen(9000);
